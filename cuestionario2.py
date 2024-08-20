@@ -2,7 +2,10 @@ import streamlit as st
 import pandas as pd
 
 # Título del cuestionario
-st.title('Cuestionario: Habilidades Blandas')
+st.markdown('<a name="top"></a>', unsafe_allow_html=True)
+
+
+st.title("Cuestionario: Habilidades Blandas")
 
 # Preguntas
 preguntas = {
@@ -41,6 +44,8 @@ respuestas = {}
 
 for key, pregunta in preguntas.items():
     respuestas[key] = st.radio(pregunta, opciones[key], key=key)
+# Después de enviar, redirige la página a la parte superior
+
 
 def enviar():
     # Crear un DataFrame y guardar en un archivo CSV
@@ -50,5 +55,14 @@ def enviar():
     # Reiniciar todas las respuestas
     for key in respuestas:
         st.session_state[key] = opciones[key][-1]
+    js_scroll_top = """
+    <script>
+        window.location.href = '#top';
+    </script>
+    """
+    st.components.v1.html(js_scroll_top, height=0)
+    
+    
 
 st.button('Enviar', on_click=enviar)
+st.markdown('[Ir al inicio](#top)')

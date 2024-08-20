@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Título del cuestionario
+st.markdown('<a name="top"></a>', unsafe_allow_html=True)
 st.title('Cuestionario: Las ciencias de datos')
 #Preguntas
 
@@ -87,6 +88,14 @@ def enviar():
     st.session_state.familiaridad_ia= 'Nada familiarizado'
     st.session_state.utilidad_ia= 'No, no lo creo'
     st.session_state.aplicaciones_ia= 'Ninguno'
-
+    js_scroll_top = """
+    <script>
+        window.location.href = '#top';
+    </script>
+    """
+    st.components.v1.html(js_scroll_top, height=0)
+    
+    
 
 st.button('Enviar', on_click=enviar)
+st.markdown('[Ir al inicio](#top)')
