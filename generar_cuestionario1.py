@@ -14,7 +14,8 @@ opciones = {
     'importancia análisis': ['Muy importante', 'Algo importante', 'Poco importante', 'No es importante'],
     'familiaridad ia': ['Muy familiarizado', 'Algo familiarizado', 'Poco familiarizado', 'Nada familiarizado'],
     'utilidad ia': ['Sí, definitivamente', 'Probablemente', 'No estoy seguro', 'No, no lo creo'],
-    'aplicaciones ia': ['Asistente virtual Siri', 'Asistente virtual Alexa', 'Recomendaciones personalizadas de Netflix o Spotify', 'Recomendaciones personalizadas de Spotify', 'Automóviles autónomos', 'Chat GPT', 'Gemini', 'Ninguno', 'Asistente virtual Google Assistant']
+    'aplicaciones ia': ['Asistente virtual Siri', 'Asistente virtual Alexa', 'Recomendaciones personalizadas de Netflix o Spotify', 'Recomendaciones personalizadas de Spotify', 'Automóviles autónomos', 'Chat GPT', 'Gemini', 'Ninguno', 'Asistente virtual Google Assistant'],
+    'correo': ['test1@gmail.com', 'test2@gmail.com', 'test3@gmail.com', 'test3@gmail.com', 'test4@gmail.com', 'test5@gmail.com', 'test6@gmail.com']
 }
 
 # Crear el archivo CSV

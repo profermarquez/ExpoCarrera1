@@ -15,3 +15,7 @@ streamlit run cuestionario2.py --server.port 8088
 # Para generar 500 registros
 py generar_cuestionario1.py
 py generar_cuestionario2.py
+
+# Comando para solucionar Error powershell FullyQualifiedErrorId : UnauthorizedAccess
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+

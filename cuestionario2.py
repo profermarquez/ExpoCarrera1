@@ -3,9 +3,10 @@ import pandas as pd
 
 # Título del cuestionario
 st.markdown('<a name="top"></a>', unsafe_allow_html=True)
-
-
 st.title("Cuestionario: Habilidades Blandas")
+def disable_enter_submit():
+    # Prevent the default form submission behavior
+    pass
 
 # Preguntas
 preguntas = {
@@ -44,8 +45,20 @@ respuestas = {}
 
 for key, pregunta in preguntas.items():
     respuestas[key] = st.radio(pregunta, opciones[key], key=key)
-# Después de enviar, redirige la página a la parte superior
 
+p13 = correo = st.text_input("Introduce tu dirección de correo electrónico:", key='correo', value='noreply@isfdyt.com',help="",on_change=disable_enter_submit,)
+st.markdown("""
+<style>
+div.stTextInput > div.st-my-1 > div:nth-child(2) {
+    visibility: hidden;
+}
+</style>
+""", unsafe_allow_html=True)
+
+use_email = st.checkbox("Utilizar este correo electrónico como información de contacto")
+
+if not use_email:
+    p13 = 'noreply@isfdyt.com'
 
 def enviar():
     # Crear un DataFrame y guardar en un archivo CSV
@@ -55,14 +68,17 @@ def enviar():
     # Reiniciar todas las respuestas
     for key in respuestas:
         st.session_state[key] = opciones[key][-1]
+    st.session_state.correo = "" if use_email else "noreply@isfdyt.com"
+
     js_scroll_top = """
     <script>
-        window.location.href = '#top';
+    alert("Gracias por responder!")
+    window.location.href = '#top';
+
+    
     </script>
     """
     st.components.v1.html(js_scroll_top, height=0)
-    
-    
 
 st.button('Enviar', on_click=enviar)
 st.markdown('[Ir al inicio](#top)')
